@@ -41,7 +41,7 @@ excel: [
 ],
 
 capcut: [
-"images/capcut-1.mp4"
+"videos/capcut-1.mp4"
 ]
 
 };
