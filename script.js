@@ -1,6 +1,6 @@
-const galleries={
+const galleries = {
 
-html:[
+html: [
 "images/html-1.png",
 "images/html-2.png",
 "images/html-3(1).png",
@@ -20,12 +20,12 @@ html:[
 "images/html-7(3).png"
 ],
 
-figma:[
+figma: [
 "images/figma-1.png",
 "images/figma-2.png"
 ],
 
-canva:[
+canva: [
 "images/canva-1.jpg",
 "images/canva-2.png",
 "images/canva-3.png",
@@ -35,60 +35,83 @@ canva:[
 "images/canva-7.jpg"
 ],
 
-excel:[
+excel: [
 "images/excel-1.jpg",
 "images/excel-2.jpg"
 ],
 
-capcut:[
+capcut: [
 "images/capcut-1.jpg"
 ]
 
 };
 
-let currentGallery=[];
-let currentIndex=0;
+const titles = {
 
-function openGallery(name){
+html:"HTML & CSS Projects",
+figma:"Figma UI/UX",
+canva:"Canva Designs",
+excel:"Excel Projects",
+capcut:"Video Editing"
 
-currentGallery=galleries[name];
-currentIndex=0;
+};
 
-document.getElementById("galleryModal").style.display="flex";
-document.getElementById("galleryImage").src=currentGallery[currentIndex];
+function openGallery(type){
+
+const modal=document.getElementById("galleryModal");
+const gallery=document.getElementById("galleryImages");
+const title=document.getElementById("galleryTitle");
+
+gallery.innerHTML="";
+
+title.textContent=titles[type];
+
+galleries[type].forEach(image=>{
+
+gallery.innerHTML+=`
+<img src="${image}" onclick="previewImage('${image}')">
+`;
+
+});
+
+modal.classList.add("active");
+
+document.body.style.overflow="hidden";
 
 }
 
 function closeGallery(){
 
-document.getElementById("galleryModal").style.display="none";
+document.getElementById("galleryModal").classList.remove("active");
+
+document.body.style.overflow="auto";
 
 }
 
-function nextImage(){
+function previewImage(src){
 
-currentIndex++;
+const preview=document.getElementById("preview");
 
-if(currentIndex>=currentGallery.length){
+preview.querySelector("img").src=src;
 
-currentIndex=0;
-
-}
-
-document.getElementById("galleryImage").src=currentGallery[currentIndex];
+preview.classList.add("active");
 
 }
 
-function prevImage(){
+function closePreview(){
 
-currentIndex--;
-
-if(currentIndex<0){
-
-currentIndex=currentGallery.length-1;
+document.getElementById("preview").classList.remove("active");
 
 }
 
-document.getElementById("galleryImage").src=currentGallery[currentIndex];
+window.onclick=function(e){
+
+const modal=document.getElementById("galleryModal");
+
+if(e.target===modal){
+
+closeGallery();
+
+}
 
 }
