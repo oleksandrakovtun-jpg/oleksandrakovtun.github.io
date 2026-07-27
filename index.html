@@ -292,7 +292,7 @@ A collection of responsive websites and landing pages built using semantic HTML 
 
 </p>
 
-<a href="#">View Gallery →</a>
+<a href="#" onclick="openGallery('html')">View Gallery →</a>
 
 </div>
 
@@ -312,7 +312,7 @@ Interface concepts, wireframes, and prototypes created in Figma. The focus is on
 
 </p>
 
-<a href="#">View Gallery →</a>
+<a href="#" onclick="openGallery('figma')">View Gallery →</a>
 
 </div>
 
@@ -332,7 +332,7 @@ Social media graphics, promotional banners, presentations, and marketing materia
 
 </p>
 
-<a href="#">View Gallery →</a>
+<a href="#" onclick="openGallery('canva')">View Gallery →</a>
 
 </div>
 
@@ -352,7 +352,7 @@ Examples of spreadsheets, formulas, reports, and data organization demonstrating
 
 </p>
 
-<a href="#">View Gallery →</a>
+<a href="#" onclick="openGallery('excel')">View Gallery →</a>
 
 </div>
 
@@ -372,7 +372,7 @@ Short-form videos edited in CapCut using transitions, subtitles, effects, and vi
 
 </p>
 
-<a href="#">View Gallery →</a>
+<a href="#" onclick="openGallery('capcut')">View Gallery →</a>
 
 </div>
 
@@ -532,6 +532,18 @@ Thank you for visiting my portfolio. I am always open to learning, collaboration
 </p>
 
 </footer>
+
+<div class="modal" id="galleryModal">
+
+    <span class="close" onclick="closeGallery()">&times;</span>
+
+    <h2 id="galleryTitle"></h2>
+
+    <div class="modal-gallery" id="galleryImages">
+
+    </div>
+
+</div>
 
 <script src="script.js"></script>
 
