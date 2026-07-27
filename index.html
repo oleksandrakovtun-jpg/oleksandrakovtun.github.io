@@ -1,150 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Oleksandra Kovtun | Portfolio</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-font-family:Arial,Helvetica,sans-serif;
-}
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-body{
-background:#0f172a;
-color:white;
-}
-
-header{
-padding:80px 10%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.hero-text{
-max-width:600px;
-}
-
-h1{
-font-size:55px;
-margin-bottom:20px;
-}
-
-h2{
-font-size:35px;
-margin-bottom:20px;
-}
-
-p{
-font-size:18px;
-line-height:1.8;
-color:#d1d5db;
-}
-
-.btn{
-display:inline-block;
-margin-top:30px;
-padding:15px 30px;
-background:#3b82f6;
-color:white;
-text-decoration:none;
-border-radius:12px;
-transition:.3s;
-font-weight:bold;
-}
-
-.btn:hover{
-background:#2563eb;
-transform:translateY(-3px);
-}
-
-.profile{
-width:250px;
-height:250px;
-border-radius:50%;
-object-fit:cover;
-box-shadow:0 0 30px rgba(59,130,246,.5);
-}
-
-section{
-padding:80px 10%;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-margin-top:30px;
-}
-
-.card{
-background:#1e293b;
-padding:25px;
-border-radius:15px;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-background:#26364d;
-}
-
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-margin-top:30px;
-}
-
-.skill{
-padding:12px 20px;
-background:#1e293b;
-border-radius:30px;
-}
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-margin-top:40px;
-}
-
-.project{
-background:#1e293b;
-border-radius:18px;
-padding:25px;
-transition:.3s;
-}
-
-.project:hover{
-transform:translateY(-5px);
-}
-
-.project h3{
-margin-bottom:10px;
-}
-
-.project a{
-display:inline-block;
-margin-top:15px;
-color:#60a5fa;
-text-decoration:none;
-}
-
-footer{
-text-align:center;
-padding:40px;
-color:#94a3b8;
-border-top:1px solid #334155;
-margin-top:60px;
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -152,130 +20,176 @@ margin-top:60px;
 
 <header>
 
+<nav>
+
+<div class="logo">
+
+Oleksandra Kovtun
+
+</div>
+
+<ul>
+
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<div class="hero">
+
 <div class="hero-text">
 
-<h1>Hi, I'm Oleksandra 👋</h1>
+<h3>Hello, I'm</h3>
+
+<h1>Oleksandra Kovtun</h1>
+
+<h2>
+Computer Science Student • Junior Frontend Developer • QA Tester • Copywriter
+</h2>
 
 <p>
-Computer Science student with practical experience in Frontend Development,
-Copywriting, QA Testing, HTML, Python, SQL, Figma, Canva, Excel and CapCut.
-I enjoy creating user-friendly interfaces, writing engaging content and
-continuously improving my skills through university projects and self-learning.
+
+I enjoy creating modern websites, designing intuitive interfaces, testing digital products, and writing engaging content.
+
+I'm constantly improving my skills through university projects, self-learning, and practical work. My goal is to create products that are both visually appealing and easy to use.
+
 </p>
 
-<a class="btn" href="https://github.com/oleksandrakovtun-jpg/Portfolio" target="_blank">
-View Full Portfolio
+<div class="buttons">
+
+<a href="#portfolio" class="btn">
+View Portfolio
+</a>
+
+<a href="https://github.com/oleksandrakovtun-jpg" target="_blank" class="btn secondary">
+GitHub
 </a>
 
 </div>
 
-<img src="images/profile.jpg" class="profile">
+</div>
+
+<div class="hero-image">
+
+<img src="images/profile.jpg" alt="Oleksandra">
+
+</div>
+
+</div>
 
 </header>
 
-<section>
+<section id="about">
 
 <h2>About Me</h2>
 
 <p>
-I'm currently studying Computer Science at V. N. Karazin Kharkiv National University.
-My interests include web development, interface design, QA testing and digital content creation.
-I like learning new technologies and applying them in real projects.
+
+Hi! My name is <strong>Oleksandra Kovtun</strong>, and I am a Computer Science student at V. N. Karazin Kharkiv National University.
+
+I specialize in Frontend Development, Copywriting, QA Testing, UI Design, and creating digital content.
+
+Throughout my studies I have completed numerous practical assignments and personal projects involving HTML, CSS, Python, SQL, Figma, Canva, Excel, and CapCut.
+
+I enjoy learning new technologies, solving real-world problems, and continuously expanding my professional portfolio.
+
+Currently, I am open to internships, freelance opportunities, and remote collaboration.
+
 </p>
 
 </section>
 
-<section>
+<section id="services">
 
-<h2>Skills</h2>
+<h2>Services</h2>
 
-<div class="skills">
+<div class="cards">
 
-<div class="skill">HTML</div>
-<div class="skill">CSS</div>
-<div class="skill">JavaScript</div>
-<div class="skill">Python</div>
-<div class="skill">SQL</div>
-<div class="skill">QA Testing</div>
-<div class="skill">Copywriting</div>
-<div class="skill">Figma</div>
-<div class="skill">Canva</div>
-<div class="skill">Excel</div>
-<div class="skill">CapCut</div>
+<div class="card">
 
-</div>
-
-</section>
-
-<section>
-
-<h2>Portfolio Categories</h2>
-
-<div class="projects">
-
-<div class="project">
-<h3>🎨 Canva Designs</h3>
-<p>Social media posts, banners, presentations and promotional materials.</p>
-<a href="https://github.com/oleksandrakovtun-jpg/Portfolio/tree/main/Canva">Open Project →</a>
-</div>
-
-<div class="project">
-<h3>🎬 CapCut Editing</h3>
-<p>Examples of edited short videos and creative content.</p>
-<a href="https://github.com/oleksandrakovtun-jpg/Portfolio/tree/main/CapCut">Open Project →</a>
-</div>
-
-<div class="project">
-<h3>📊 Excel Projects</h3>
-<p>Data processing, spreadsheets and analytical work.</p>
-<a href="https://github.com/oleksandrakovtun-jpg/Portfolio/tree/main/Excel">Open Project →</a>
-</div>
-
-<div class="project">
-<h3>🎯 Figma UI/UX</h3>
-<p>Wireframes, interface designs and application prototypes.</p>
-<a href="https://github.com/oleksandrakovtun-jpg/Portfolio/tree/main/Figma">Open Project →</a>
-</div>
-
-<div class="project">
-<h3>💻 HTML Projects</h3>
-<p>Responsive web pages and university frontend projects.</p>
-<a href="https://github.com/oleksandrakovtun-jpg/Portfolio/tree/main/HTML">Open Project →</a>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Contact</h2>
+<h3>💻 Frontend Development</h3>
 
 <p>
-📧 Email: your@email.com
+
+Responsive websites, landing pages, HTML/CSS layouts and user-friendly interfaces.
+
 </p>
 
-<p>
-💼 LinkedIn:
-<a style="color:#60a5fa;" href="https://linkedin.com/in/oleksandra-kovtun-375307327" target="_blank">
-linkedin.com/in/oleksandra-kovtun
-</a>
-</p>
+</div>
+
+<div class="card">
+
+<h3>🎨 UI / UX Design</h3>
 
 <p>
-🐱 GitHub:
-<a style="color:#60a5fa;" href="https://github.com/oleksandrakovtun-jpg" target="_blank">
-github.com/oleksandrakovtun-jpg
-</a>
+
+Wireframes, interface concepts and prototypes created in Figma.
+
 </p>
+
+</div>
+
+<div class="card">
+
+<h3>📝 Copywriting</h3>
+
+<p>
+
+SEO-friendly articles, blog posts, website content and marketing texts.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>✅ QA Testing</h3>
+
+<p>
+
+Manual testing, bug reporting, usability testing and quality assurance.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>📊 Excel</h3>
+
+<p>
+
+Spreadsheets, reports, data organization and analysis.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🎬 Content Creation</h3>
+
+<p>
+
+Graphics in Canva and short-form video editing in CapCut.
+
+</p>
+
+</div>
+
+</div>
 
 </section>
 
-<footer>
+<!-- дальше продолжим -->
 
-© 2026 Oleksandra Kovtun • Portfolio Website
-
-</footer>
+<script src="script.js"></script>
 
 </body>
+
 </html>
