@@ -217,6 +217,27 @@ section h2 {
     object-fit: cover;
 }
 
+.project{
+    overflow:hidden;
+}
+
+.project img,
+.project-video{
+    transition:.4s;
+}
+
+.project:hover img,
+.project:hover .project-video{
+    transform:scale(1.05);
+}
+
+.project-video{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+    display:block;
+}
+
 .project-info {
     padding: 25px;
 }
