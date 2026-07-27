@@ -41,58 +41,91 @@ excel: [
 ],
 
 capcut: [
-"images/capcut-1.jpg"
+"images/capcut-1.mp4"
 ]
 
 };
 
 const titles = {
-
-html:"HTML & CSS Projects",
-figma:"Figma UI/UX",
-canva:"Canva Designs",
-excel:"Excel Projects",
-capcut:"Video Editing"
-
+html: "HTML & CSS Projects",
+figma: "Figma UI/UX",
+canva: "Canva Designs",
+excel: "Excel Projects",
+capcut: "Video Editing"
 };
 
 function openGallery(type){
 
-const modal=document.getElementById("galleryModal");
-const gallery=document.getElementById("galleryImages");
-const title=document.getElementById("galleryTitle");
+const modal = document.getElementById("galleryModal");
+const gallery = document.getElementById("galleryImages");
+const title = document.getElementById("galleryTitle");
 
-gallery.innerHTML="";
+gallery.innerHTML = "";
+title.textContent = titles[type];
 
-title.textContent=titles[type];
+galleries[type].forEach(file => {
 
-galleries[type].forEach(image=>{
+const extension = file.split('.').pop().toLowerCase();
 
-gallery.innerHTML+=`
-<img src="${image}" onclick="previewImage('${image}')">
+if(extension === "mp4" || extension === "webm"){
+
+gallery.innerHTML += `
+<video
+class="gallery-video"
+src="${file}"
+controls
+muted
+playsinline
+onclick="previewMedia('${file}')">
+</video>
 `;
+
+}else{
+
+gallery.innerHTML += `
+<img
+src="${file}"
+onclick="previewMedia('${file}')">
+`;
+
+}
 
 });
 
 modal.classList.add("active");
-
-document.body.style.overflow="hidden";
+document.body.style.overflow = "hidden";
 
 }
 
 function closeGallery(){
 
 document.getElementById("galleryModal").classList.remove("active");
-
-document.body.style.overflow="auto";
+document.body.style.overflow = "auto";
 
 }
 
-function previewImage(src){
+function previewMedia(file){
 
-const preview=document.getElementById("preview");
+const preview = document.getElementById("preview");
+const content = document.getElementById("previewContent");
 
-preview.querySelector("img").src=src;
+const extension = file.split('.').pop().toLowerCase();
+
+if(extension === "mp4" || extension === "webm"){
+
+content.innerHTML = `
+<video controls autoplay style="max-width:95%; max-height:90vh; border-radius:15px;">
+<source src="${file}" type="video/mp4">
+</video>
+`;
+
+}else{
+
+content.innerHTML = `
+<img src="${file}" style="max-width:95%; max-height:90vh; border-radius:15px;">
+`;
+
+}
 
 preview.classList.add("active");
 
@@ -102,16 +135,22 @@ function closePreview(){
 
 document.getElementById("preview").classList.remove("active");
 
+const content = document.getElementById("previewContent");
+content.innerHTML = "";
+
 }
 
-window.onclick=function(e){
+window.onclick = function(e){
 
-const modal=document.getElementById("galleryModal");
+const modal = document.getElementById("galleryModal");
+const preview = document.getElementById("preview");
 
-if(e.target===modal){
-
+if(e.target === modal){
 closeGallery();
-
 }
 
+if(e.target === preview){
+closePreview();
 }
+
+};
