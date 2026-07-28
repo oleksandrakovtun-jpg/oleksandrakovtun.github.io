@@ -56,101 +56,136 @@ capcut: "Video Editing"
 
 function openGallery(type){
 
-const modal = document.getElementById("galleryModal");
-const gallery = document.getElementById("galleryImages");
-const title = document.getElementById("galleryTitle");
+    const modal = document.getElementById("galleryModal");
+    const gallery = document.getElementById("galleryImages");
+    const title = document.getElementById("galleryTitle");
 
-gallery.innerHTML = "";
-title.textContent = titles[type];
+    gallery.innerHTML = "";
+    title.textContent = titles[type];
 
-galleries[type].forEach(file => {
+    galleries[type].forEach(file => {
 
-const extension = file.split('.').pop().toLowerCase();
+        const extension = file.split(".").pop().toLowerCase();
 
-if(extension === "mp4" || extension === "webm"){
+        if(extension === "mp4" || extension === "webm"){
 
-gallery.innerHTML += `
-<video
-class="gallery-video"
-src="${file}"
-controls
-muted
-playsinline
-onclick="previewMedia('${file}')">
-</video>
-`;
+            gallery.innerHTML += `
+                <video
+                    class="gallery-video"
+                    controls
+                    playsinline
+                    preload="metadata"
+                    onclick="previewMedia('${file}')">
 
-}else{
+                    <source src="${file}" type="video/mp4">
 
-gallery.innerHTML += `
-<img
-src="${file}"
-onclick="previewMedia('${file}')">
-`;
+                </video>
+            `;
 
-}
+        }else{
 
-});
+            gallery.innerHTML += `
+                <img
+                    src="${file}"
+                    onclick="previewMedia('${file}')">
+            `;
 
-modal.classList.add("active");
-document.body.style.overflow = "hidden";
+        }
+
+    });
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
 
 }
 
 function closeGallery(){
 
-document.getElementById("galleryModal").classList.remove("active");
-document.body.style.overflow = "auto";
+    const modal = document.getElementById("galleryModal");
+
+    modal.querySelectorAll("video").forEach(video=>{
+
+        video.pause();
+        video.currentTime = 0;
+
+    });
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow = "auto";
 
 }
 
 function previewMedia(file){
 
-const preview = document.getElementById("preview");
-const content = document.getElementById("previewContent");
+    const preview = document.getElementById("preview");
+    const content = document.getElementById("previewContent");
 
-const extension = file.split('.').pop().toLowerCase();
+    const extension = file.split(".").pop().toLowerCase();
 
-if(extension === "mp4" || extension === "webm"){
+    if(extension === "mp4" || extension === "webm"){
 
-content.innerHTML = `
-<video controls autoplay style="max-width:95%; max-height:90vh; border-radius:15px;">
-<source src="${file}" type="video/mp4">
-</video>
-`;
+        content.innerHTML = `
+            <video
+                id="previewVideo"
+                controls
+                autoplay
+                playsinline
+                style="max-width:95%;max-height:90vh;border-radius:15px;">
 
-}else{
+                <source src="${file}" type="video/mp4">
 
-content.innerHTML = `
-<img src="${file}" style="max-width:95%; max-height:90vh; border-radius:15px;">
-`;
+            </video>
+        `;
 
-}
+    }else{
 
-preview.classList.add("active");
+        content.innerHTML = `
+            <img
+                src="${file}"
+                style="max-width:95%;max-height:90vh;border-radius:15px;">
+        `;
+
+    }
+
+    preview.classList.add("active");
 
 }
 
 function closePreview(){
 
-document.getElementById("preview").classList.remove("active");
+    const preview = document.getElementById("preview");
 
-const content = document.getElementById("previewContent");
-content.innerHTML = "";
+    const video = preview.querySelector("video");
+
+    if(video){
+
+        video.pause();
+        video.currentTime = 0;
+
+    }
+
+    preview.classList.remove("active");
+
+    document.getElementById("previewContent").innerHTML = "";
 
 }
 
 window.onclick = function(e){
 
-const modal = document.getElementById("galleryModal");
-const preview = document.getElementById("preview");
+    const modal = document.getElementById("galleryModal");
+    const preview = document.getElementById("preview");
 
-if(e.target === modal){
-closeGallery();
-}
+    if(e.target === modal){
 
-if(e.target === preview){
-closePreview();
-}
+        closeGallery();
+
+    }
+
+    if(e.target === preview){
+
+        closePreview();
+
+    }
 
 };
